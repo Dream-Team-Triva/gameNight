@@ -13,13 +13,18 @@ myApp.getTriviaQuestions = function(){
         console.log(result.results);
     })
 }
+
+myApp.correctAnswerArray = [];
+
 /* Function to display trivia questions */
 myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     // TODO: We need to display each result object in the ui
-
     const multipleChoice = myApp.getChoices(arrayOfQuestionObjects);
     // console.log("this is the thing" , ;
     arrayOfQuestionObjects.forEach((questionBlock, index) => {
+
+        myApp.correctAnswerArray.push(questionBlock.correct_answer);
+
         const displayHTML = `<div class="triviaQuestion">
         <h2>${questionBlock.question}</h2>
         <input type="radio" id="question">
@@ -35,12 +40,28 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
         $('#mainTriviaContainer form').append(displayHTML);
     }); 
 
+    console.log(myApp.correctAnswerArray);
+
     
     
     // Call the function to display the choices
     // myApp.displayChoices(arrayOfQuestionObjects);
     console.log(arrayOfQuestionObjects);
 }
+
+$('form').on('submit', function() {
+    // MO'S CODE THAT WORKS YO
+    // const correctAnswers = ["test", "otherTest", "finalTest"];
+    // const userAnswers = ["test", "dumbTest", "finalTest"];
+    // const finalizedAnswers = [];
+    // correctAnswers.forEach((answer, index) => {
+    //     if (userAnswers[index] === answer) {
+    //         finalizedAnswers.push(userAnswers[index]);
+    //         console.log("Holy shit");
+    //     }
+    // });
+    // console.log(finalizedAnswers);
+});
 
 /* Function to display the choices */
 // myApp.displayChoices = (arrayOfQuestionObjects) => {
@@ -76,7 +97,7 @@ myApp.getChoices = (arrayOfQuestionObjects) => {
 
 
         // Call getCorrectAnswers
-        myApp.getCorrectAnswers(question.correct_answer);
+        // myApp.getCorrectAnswers(question.correct_answer);
     });
 
     return choicesArray;
