@@ -10,28 +10,46 @@ myApp.getTriviaQuestions = function(){
         // Note: ajax returns an object that holds 10 arrays
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
+        console.log(result.results);
     })
 }
-
 /* Function to display trivia questions */
 myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     // TODO: We need to display each result object in the ui
 
+    const multipleChoice = myApp.getChoices(arrayOfQuestionObjects);
+    // console.log("this is the thing" , ;
+    arrayOfQuestionObjects.forEach((questionBlock, index) => {
+        const displayHTML = `<div class="triviaQuestion">
+        <h2>${questionBlock.question}</h2>
+        <input type="radio" id="question">
+        <label for="question">${multipleChoice[index][0]}</label>
+        <input type="radio" id="question">
+        <label for="question">${multipleChoice[index][1]}</label>
+        <input type="radio" id="question">
+        <label for="question">${multipleChoice[index][2]}</label>
+        <input type="radio" id="question">
+        <label for="question">${multipleChoice[index][3]}</label>
+        </div>`;
+        // console.log(questionBlock.question);
+        $('#mainTriviaContainer form').append(displayHTML);
+    }); 
+
     
     
     // Call the function to display the choices
-    myApp.displayChoices(arrayOfQuestionObjects);
+    // myApp.displayChoices(arrayOfQuestionObjects);
+    console.log(arrayOfQuestionObjects);
 }
 
 /* Function to display the choices */
-myApp.displayChoices = (arrayOfQuestionObjects) => {
+// myApp.displayChoices = (arrayOfQuestionObjects) => {
     // Store the correct and incorrect answers to an array first. function getChoices will take care of this.
-    const multipleChoice = myApp.getChoices(arrayOfQuestionObjects);
-    console.log("Multiple choice", multipleChoice)
+    // console.log("Multiple choice", multipleChoice)
 
     
     // TODO: Render the choices in the ui
-}
+// }
 
 /*
 Function to get the choices.
@@ -71,6 +89,7 @@ myApp.getCorrectAnswers = (correctAnswer) => {
 
 myApp.init = function(){
     myApp.getTriviaQuestions();
+    
 }
 
 $(document).ready(function(){
