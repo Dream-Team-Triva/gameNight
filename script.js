@@ -31,13 +31,13 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
         <div class="triviaQuestion">
             <h2>${questionBlock.question}</h2>
             <fieldset>
-                <input type="radio" name=${[index]} id='a${[index]}' value='${multipleChoice[index][0]}'>
+                <input type="radio" name=${[index]} id='a${[index]}' value="${multipleChoice[index][0]}" required="required">
                 <label for='a${[index]}'>${multipleChoice[index][0]}</label>
-                <input type="radio" name=${[index]} id='b${[index]}' value='${multipleChoice[index][0]}'>
+                <input type="radio" name=${[index]} id='b${[index]}' value="${multipleChoice[index][1]}" required="required">
                 <label for='b${[index]}'>${multipleChoice[index][1]}</label>
-                <input type="radio" name=${[index]} id='c${[index]}' value='${multipleChoice[index][0]}'>
+                <input type="radio" name=${[index]} id='c${[index]}' value="${multipleChoice[index][2]}" required="required">
                 <label for='c${[index]}'>${multipleChoice[index][2]}</label>
-                <input type="radio" name=${[index]} id='d${[index]}' value='${multipleChoice[index][0]}'>
+                <input type="radio" name=${[index]} id='d${[index]}' value="${multipleChoice[index][3]}" required="required">
                 <label for='d${[index]}'>${multipleChoice[index][3]}</label>
             </fieldset>
         </div>`;
@@ -66,12 +66,13 @@ $('form').on('submit', function(event) {
             myApp.finalizedAnswers.push(myApp.userAnswers[index]);
         }
     });
+
     if (myApp.userAnswers.length !== myApp.correctAnswerArray.length){
         $('.resultMessage').html(`<h2>Please answer all the questions before submitting.`);
         myApp.userAnswers = [];
     }
 
-    else {$('.resultMessage').html(`<h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`)
+    else {$('.resultMessage').html(`<h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`);
     $('form').off('submit');
     $('form input[type=submit]').val("Reset Quiz");
     };
