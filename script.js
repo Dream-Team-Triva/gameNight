@@ -18,6 +18,9 @@ myApp.userAnswers = [];
 myApp.correctAnswerArray = [];
 myApp.finalizedAnswers = [];
 
+myApp.htmlDecode = function(value) {
+    return $("<textarea/>").html(value).text();
+}
 /* Function to display trivia questions */
 myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     // TODO: We need to display each result object in the ui
@@ -25,7 +28,7 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     // console.log("this is the thing" , ;
     
     arrayOfQuestionObjects.forEach((questionBlock, index) => {
-        myApp.correctAnswerArray.push(questionBlock.correct_answer);
+        myApp.correctAnswerArray.push(myApp.htmlDecode(questionBlock.correct_answer));
 
         const displayHTML = `
         <div class="triviaQuestion">
