@@ -1,16 +1,21 @@
 const myApp = {};
-myApp.triviaUrl = 'https://opentdb.com/api.php?amount=10&type=multiple&category=9';
+myApp.triviaUrl = 'https://opentdb.com/api.php?amount=10&type=multiple';
 
-myApp.getTriviaQuestions = function(){
+myApp.getTriviaQuestions = function(choice){
     $.ajax({
         url: myApp.triviaUrl,
         method: 'GET',
         datatype: 'json',
+        data: {
+            category: choice
+        }
     }).then(function(result){
         // Note: ajax returns an object that holds 10 arrays
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
-        console.log(result.results);
+        console.log("result.results", result.results);
+    }).fail( function(error) {
+        // TODO: Display message in the UI
     })
 }
 
@@ -18,14 +23,27 @@ myApp.userAnswers = [];
 myApp.correctAnswerArray = [];
 myApp.finalizedAnswers = [];
 
+myApp.changeCategory = function() {
+    $('select').on('change', function() {
+        chosenCategory = $('option:selected').val();
+        console.log("Chosen category", chosenCategory);
+
+        $('.questionsForm').empty();
+
+        myApp.getTriviaQuestions(chosenCategory);
+        
+        myApp.correctAnswerArray = [];
+    })
+}
+
+/* A function to decode the characters returned by the API i.e. #&039; for single quote into ' */
 myApp.htmlDecode = function(value) {
     return $("<textarea/>").html(value).text();
 }
 /* Function to display trivia questions */
 myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
-    // TODO: We need to display each result object in the ui
+    //Display each result object in the ui
     const multipleChoice = myApp.getChoices(arrayOfQuestionObjects);
-    // console.log("this is the thing" , ;
     
     arrayOfQuestionObjects.forEach((questionBlock, index) => {
         myApp.correctAnswerArray.push(myApp.htmlDecode(questionBlock.correct_answer));
@@ -44,51 +62,43 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
                 <label for='d${[index]}'>${multipleChoice[index][3]}</label>
             </fieldset>
         </div>`;
-        // console.log(questionBlock.question);
+
         $('#mainTriviaContainer form').append(displayHTML);
     }); 
 
-    console.log(myApp.correctAnswerArray);
+    // Add Submit Button
     $('#mainTriviaContainer form').append(`<input type="submit" value="Submit">`);
     
-    
-    // Call the function to display the choices
-    // myApp.displayChoices(arrayOfQuestionObjects);
-    console.log(arrayOfQuestionObjects);
+    console.log("myApp.correctAnswerArray", myApp.correctAnswerArray);
+    console.log("arrayOfQuestionsObjects", arrayOfQuestionObjects);
 }
 
 $('form').on('submit', function(event) {
     event.preventDefault();
+    
     $("input:checked").each(function(){
         let userChoice = this.value;
         myApp.userAnswers.push(userChoice);
-        console.log(myApp.userAnswers);
+        console.log("myApp.userAnswers", myApp.userAnswers);
     })
+    
     myApp.correctAnswerArray.forEach((answer, index) => {
         if (myApp.userAnswers[index] === answer) {
             myApp.finalizedAnswers.push(myApp.userAnswers[index]);
         }
     });
 
+    console.log("finalizedAnswer", myApp.finalizedAnswers);
+
     if (myApp.userAnswers.length !== myApp.correctAnswerArray.length){
         $('.resultMessage').html(`<h2>Please answer all the questions before submitting.`);
         myApp.userAnswers = [];
-    }
-
-    else {$('.resultMessage').html(`<h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`);
+    } else {$('.resultMessage').html(`
+    <h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`);
     $('form').off('submit');
     $('form input[type=submit]').val("Reset Quiz");
     };
 });
-
-/* Function to display the choices */
-// myApp.displayChoices = (arrayOfQuestionObjects) => {
-    // Store the correct and incorrect answers to an array first. function getChoices will take care of this.
-    // console.log("Multiple choice", multipleChoice)
-
-    
-    // TODO: Render the choices in the ui
-// }
 
 /*
 Function to get the choices.
@@ -111,24 +121,19 @@ myApp.getChoices = (arrayOfQuestionObjects) => {
 
         // Insert the correct answer using the index position generated
         choicesArray[index].splice(randomIndex, 0, question.correct_answer);
+        
         console.log("correct_answer", question.correct_answer, "random index", randomIndex);
-
-
-        // Call getCorrectAnswers
-        // myApp.getCorrectAnswers(question.correct_answer);
     });
 
     return choicesArray;
 }
 
-/*TODO: Store the correct answers to an array for score evaluation later*/
-myApp.getCorrectAnswers = (correctAnswer) => {
-    
-}
-
 myApp.init = function(){
-    myApp.getTriviaQuestions();
-    
+    // By default this will display General Knowledge category
+    myApp.getTriviaQuestions(9);
+
+    // Start listening if the user changes the Trivia category
+    myApp.changeCategory();
 }
 
 $(document).ready(function(){
