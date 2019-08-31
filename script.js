@@ -50,16 +50,22 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
 
         const displayHTML = `
         <div class="triviaQuestion">
-            <h2>${questionBlock.question}</h2>
+            <h2>${index+1}.  ${questionBlock.question}</h2>
             <fieldset>
-                <input type="radio" name=${[index]} id='a${[index]}' value="${multipleChoice[index][0]}" required="required">
-                <label for='a${[index]}'>${multipleChoice[index][0]}</label>
-                <input type="radio" name=${[index]} id='b${[index]}' value="${multipleChoice[index][1]}" required="required">
-                <label for='b${[index]}'>${multipleChoice[index][1]}</label>
-                <input type="radio" name=${[index]} id='c${[index]}' value="${multipleChoice[index][2]}" required="required">
-                <label for='c${[index]}'>${multipleChoice[index][2]}</label>
-                <input type="radio" name=${[index]} id='d${[index]}' value="${multipleChoice[index][3]}" required="required">
-                <label for='d${[index]}'>${multipleChoice[index][3]}</label>
+                <div>
+                    <input type="radio" name=${[index]} id='a${[index]}' value="${multipleChoice[index][0]}" required="required">
+                    <label for='a${[index]}'>${multipleChoice[index][0]}</label>
+                
+                    <input type="radio" name=${[index]} id='b${[index]}' value="${multipleChoice[index][1]}" required="required">
+                    <label for='b${[index]}'>${multipleChoice[index][1]}</label>
+                </div>
+                <div>
+                    <input type="radio" name=${[index]} id='c${[index]}' value="${multipleChoice[index][2]}" required="required">
+                    <label for='c${[index]}'>${multipleChoice[index][2]}</label>
+
+                    <input type="radio" name=${[index]} id='d${[index]}' value="${multipleChoice[index][3]}" required="required">
+                    <label for='d${[index]}'>${multipleChoice[index][3]}</label>
+                </div>
             </fieldset>
         </div>`;
 

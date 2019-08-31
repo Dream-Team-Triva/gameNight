@@ -1,0 +1,31 @@
+html {
+	font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    background-color: $backgroundColor;
+}
+
+.wrapper {
+	width: 90%;
+	max-width: 1080px;
+	margin: 0 auto;
+}
+
+.skip-link {
+	position: absolute;
+	left: -1000px;
+	top: 0;
+	z-index: 999;
+	background: white;
+	color: white;
+	text-decoration: none;
+	padding: 2rem;
+	text-transform: uppercase;
+	letter-spacing: 0.1rem;
+}
+
+.skip-link:focus {
+	left: 0;
+}
