@@ -218,6 +218,18 @@ header {
   background-color: #ffe093;
 }
 
+@media ((max-width: 768px)) {
+  header {
+    padding-bottom: 40px;
+  }
+}
+
+@media ((max-width: 414px)) {
+  header {
+    height: 100vh;
+  }
+}
+
 .mainHeading {
   font-family: "Luckiest Guy", cursive;
   padding: 2%;
@@ -227,16 +239,54 @@ header {
   text-shadow: 3px 4px #131515;
 }
 
+@media ((max-width: 320px)) {
+  .mainHeading {
+    font-size: 7rem;
+  }
+}
+
 .subHeading {
   font-family: "Merriweather", serif;
   padding: 2%;
   font-size: 3.5rem;
 }
 
+@media ((max-width: 414px)) {
+  .subHeading {
+    font-size: 3.1rem;
+  }
+}
+
+@media ((max-width: 320px)) {
+  .subHeading {
+    font-size: 2.8rem;
+  }
+}
+
 .categoryHeading {
   padding-bottom: 1%;
   font-family: "Merriweather", serif;
   font-size: 3rem;
+}
+
+@media ((max-width: 414px)) {
+  .categoryHeading {
+    font-size: 2.5rem;
+    margin-bottom: 90px;
+  }
+}
+
+@media ((max-width: 375px)) {
+  .categoryHeading {
+    margin-bottom: 50px;
+  }
+}
+
+@media ((max-width: 320px)) {
+  .categoryHeading {
+    font-size: 2.2rem;
+    margin-bottom: 25px;
+  }
 }
 
 .categorySelector {
@@ -265,6 +315,25 @@ header {
   background-repeat: no-repeat, repeat;
   background-position: right .7em top 50%, 0 0;
   background-size: .65em auto, 100%;
+}
+
+@media ((max-width: 768px)) {
+  .categorySelector {
+    height: 70px;
+    width: 40%;
+  }
+}
+
+@media ((max-width: 414px)) {
+  .categorySelector {
+    width: 70%;
+  }
+}
+
+@media ((max-width: 375px)) {
+  .categorySelector {
+    width: 80%;
+  }
 }
 
 .categorySelector::-ms-expand {
@@ -296,6 +365,15 @@ header {
   -ms-flex-pack: distribute;
       justify-content: space-around;
   margin-top: 1.5rem;
+}
+
+@media ((max-width: 414px)) {
+  .fieldContainer {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
 }
 
 .mainTriviaContainer {
@@ -336,8 +414,26 @@ header {
   padding: 10px 0;
 }
 
+@media ((max-width: 414px)) {
+  .triviaQuestion h2 {
+    font-size: 3rem;
+  }
+}
+
+@media ((max-width: 320px)) {
+  .triviaQuestion h2 {
+    font-size: 2.8rem;
+  }
+}
+
 .triviaQuestion label {
   font-family: "Merriweather", serif;
+}
+
+@media ((max-width: 414px)) {
+  .triviaQuestion {
+    width: 95%;
+  }
 }
 
 @-webkit-keyframes slide-in-left {
@@ -376,6 +472,13 @@ header {
       -ms-flex-direction: column;
           flex-direction: column;
   width: 40%;
+}
+
+@media ((max-width: 414px)) {
+  .optGroup1,
+  .optGroup2 {
+    width: 100%;
+  }
 }
 
 .optGroup1 label:nth-child(1),
@@ -466,6 +569,7 @@ header {
   font-size: 2rem;
   text-shadow: 1px 2px tomato;
   color: whitesmoke;
+  text-align: center;
 }
 
 .lds-roller {
@@ -606,4 +710,22 @@ footer p {
   font-family: "Merriweather", serif;
   font-size: 2.5rem;
   color: whitesmoke;
+}
+
+@media ((max-width: 414px)) {
+  footer p {
+    font-size: 2rem;
+  }
+}
+
+@media ((max-width: 375px)) {
+  footer p {
+    font-size: 1.8rem;
+  }
+}
+
+@media ((max-width: 320px)) {
+  footer p {
+    font-size: 1.6rem;
+  }
 }

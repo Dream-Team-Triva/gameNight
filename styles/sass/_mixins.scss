@@ -1,0 +1,15 @@
+@mixin ipad {
+  @media ($ipad) {@content}; 
+}
+
+@mixin iphonePlus{
+    @media ($iphonePlus) {@content}; 
+}
+
+@mixin iphone678{
+    @media ($iphone678) {@content}; 
+}
+
+@mixin iphone5{
+    @media ($iphone5) {@content}; 
+}
