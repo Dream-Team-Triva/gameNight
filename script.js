@@ -19,7 +19,6 @@ myApp.getTriviaQuestions = function (choice) {
         // Note: ajax returns an object that holds 10 arrays
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
-        console.log("result.results", result.results);
     }).fail(function (error) {
         // TODO: Display message in the UI
     })
@@ -32,8 +31,6 @@ myApp.finalizedAnswers = [];
 myApp.changeCategory = function () {
     $('select').on('change', function () {
         chosenCategory = $('option:selected').val();
-        console.log("Chosen category", chosenCategory);
-
         $('.questionsForm').empty();
 
         myApp.getTriviaQuestions(chosenCategory);
@@ -93,9 +90,6 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
 
     // Add Submit Button
     $('#mainTriviaContainer form').append(`<input type="submit" value="Submit" class="finalSubmit">`);
-
-    console.log("myApp.correctAnswerArray", myApp.correctAnswerArray);
-    console.log("arrayOfQuestionsObjects", arrayOfQuestionObjects);
 }
 
 $('form').on('submit', function (event) {
@@ -104,7 +98,6 @@ $('form').on('submit', function (event) {
     $("input:checked").each(function () {
         let userChoice = this.value;
         myApp.userAnswers.push(userChoice);
-        console.log("myApp.userAnswers", myApp.userAnswers);
     })
 
     myApp.correctAnswerArray.forEach((answer, index) => {
@@ -112,8 +105,6 @@ $('form').on('submit', function (event) {
             myApp.finalizedAnswers.push(myApp.userAnswers[index]);
         }
     });
-
-    console.log("finalizedAnswer", myApp.finalizedAnswers);
 
     if (myApp.userAnswers.length !== myApp.correctAnswerArray.length) {
         $('.resultMessage').html(`<h2>Please answer all the questions before submitting.`);
@@ -147,8 +138,6 @@ myApp.getChoices = (arrayOfQuestionObjects) => {
 
         // Insert the correct answer using the index position generated
         choicesArray[index].splice(randomIndex, 0, question.correct_answer);
-
-        console.log("correct_answer", question.correct_answer, "random index", randomIndex);
     });
 
     return choicesArray;
