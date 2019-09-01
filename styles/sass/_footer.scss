@@ -1,9 +1,11 @@
 footer {
     text-align: center;
-    background-color: #fff;
-    padding: 2%;
+    background-color: $textColor;
+    padding: 15px;
 }
 
 footer p {
-    font-family: $subFont;
+    font-family: $testFont;
+    font-size: 2.5rem;
+    color: whitesmoke;
 }

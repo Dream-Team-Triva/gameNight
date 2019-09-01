@@ -4,7 +4,8 @@ html {
 
 body {
     font-size: 1.6rem;
-    background-color: $backgroundColor;
+	background-color: $primaryColor;
+	color: $textColor;
 }
 
 .wrapper {

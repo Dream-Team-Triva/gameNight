@@ -92,7 +92,7 @@ myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     });
 
     // Add Submit Button
-    $('#mainTriviaContainer form').append(`<input type="submit" value="Submit">`);
+    $('#mainTriviaContainer form').append(`<input type="submit" value="Submit" class="finalSubmit">`);
 
     console.log("myApp.correctAnswerArray", myApp.correctAnswerArray);
     console.log("arrayOfQuestionsObjects", arrayOfQuestionObjects);
@@ -120,7 +120,7 @@ $('form').on('submit', function (event) {
         myApp.userAnswers = [];
     } else {
         $('.resultMessage').html(`
-    <h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`);
+    <h2>You got ${myApp.finalizedAnswers.length} questions out of 10 correct!</h2>`);
         $('form').off('submit');
         $('form input[type=submit]').val("Reset Quiz");
     };
