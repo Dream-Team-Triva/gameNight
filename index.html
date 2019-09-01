@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,11 +11,15 @@
     <link rel="stylesheet" href="./styles/style.css">
     <title>Trivia Generator</title>
 </head>
+
 <body>
     <header>
-        <h1>Trivia Generator</h1>
-        <h2>Welcome to your very own trivia generator</h2>
-        <h3>Choose your preferred category:</h3>
+        <div class="mainHeadingHolder">
+            <h1 class="mainHeading">Trivia Generator</h1>
+        </div>
+        <h2 class="subHeading">Welcome to your very own trivia generator</h2>
+        <h3 class="categoryHeading">Choose your preferred category:</h3>
+        
         <form action="">
             <select name="" id="">
                 <option value="9">General Knowledge</option>
@@ -25,15 +30,24 @@
             </select>
         </form>
     </header>
-    <main>
-        <div class="lds-roller"><div></div><div></div><div></div><div></div><div></div><div></div><div></div><div></div></div>
+    <main class="wrapper">
+        <div class="lds-roller">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
 
         <section class="mainTriviaContainer" id="mainTriviaContainer">
             <form action="" class="questionsForm">
 
             </form>
             <div class="resultMessage">
-                
+
             </div>
         </section>
     </main>
@@ -41,7 +55,9 @@
         <p>Ana, Mo, Nick &copy; 2019</p>
     </footer>
     <!-- <h1>Testing</h1> -->
-    <script src='https://code.jquery.com/jquery-3.4.0.min.js' integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
+    <script src='https://code.jquery.com/jquery-3.4.0.min.js'
+        integrity='sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=' crossorigin='anonymous'></script>
     <script src="script.js"></script>
 </body>
+
 </html>

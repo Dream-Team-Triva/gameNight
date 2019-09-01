@@ -1,11 +1,41 @@
-// fieldset {
 .fieldContainer {
     display: flex;
+    border: none;
+    justify-content: space-around;
+    margin-top: 1.5rem;
 }
 
-// fieldset div {
-//     flex-direction: row;
-// }
+.mainTriviaContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.triviaQuestion{
+    background: white;
+    border: 2px solid tomato;
+    margin: 15px auto;
+    width: 70%;
+    padding: 15px 15px;
+    animation: slide-in-left 0.7s forwards;
+    h2{
+        font-family: $mainFont;
+        letter-spacing: 1px;
+        width: 90%;
+        font-size: 3.5rem;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    label{
+        font-family: $subFont;
+    }
+}
+
+// animation courtesy animista.net
+
+@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}
 
 // Radio buttons styles
 .optGroup1,
