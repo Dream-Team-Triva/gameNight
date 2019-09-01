@@ -1,9 +1,10 @@
 // This code is courtesy of https://loading.io/css/
 .lds-roller {
-    display: inline-block;
+    display: block;
     position: relative;
     width: 64px;
     height: 64px;
+    margin: 0 auto;
 }
 
 .lds-roller div {

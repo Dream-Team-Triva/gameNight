@@ -11,13 +11,14 @@
     justify-content: center;
     align-items: center;
     width: 100%;
+    padding: 35px 0 35px 0;
 }
 
 .triviaQuestion{
-    background: white;
-    border: 2px solid tomato;
+    background: whitesmoke;
+    border: 2px solid $accentColor;
     margin: 15px auto;
-    width: 70%;
+    width: 80%;
     padding: 15px 15px;
     animation: slide-in-left 0.7s forwards;
     h2{
@@ -29,8 +30,9 @@
         padding: 10px 0;
     }
     label{
-        font-family: $subFont;
+        font-family: $testFont;
     }
+    border-radius: 20px 20px;
 }
 
 // animation courtesy animista.net
@@ -77,7 +79,7 @@
     left: 0;
     height: 2rem;
     width: 2rem;
-    background-color: dodgerblue;
+    background-color: $primaryColor;
     border-radius: 50%;
 }
 
@@ -105,5 +107,37 @@
 }
 
 .radioButton:focus ~ .checkMark{
-    box-shadow: 0 0 5px red;
+    box-shadow: 0 0 5px $accentColor;
+}
+
+.finalSubmit {
+    display: block;
+    width: 250px;
+    height: 75px;
+    font-family: $testFont;
+    font-weight: 900;
+    font-size: 3rem;
+    margin: 35px auto;
+    border: none;
+    background-color: $accentColor;
+    color: whitesmoke;
+    border-radius: 20px 20px;
+}
+
+.finalSubmit:hover {
+    background-color: whitesmoke;
+    color: $accentColor;
+}
+
+.finalSubmit:focus {
+    background-color: whitesmoke;
+    color: $accentColor;
+    box-shadow: 0 0 5px $accentColor;
+}
+
+.resultMessage {
+    font-family: $testFont;
+    font-size: 2rem;
+    text-shadow: 1px 2px $accentColor;
+    color: whitesmoke;
 }

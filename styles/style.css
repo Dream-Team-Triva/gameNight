@@ -185,7 +185,8 @@ html {
 
 body {
   font-size: 1.6rem;
-  background-color: #8DE4FF;
+  background-color: #7fa7ff;
+  color: #131515;
 }
 
 .wrapper {
@@ -214,26 +215,77 @@ body {
 header {
   text-align: center;
   padding: 2%;
-  background-color: #fff;
-}
-
-.mainHeadingHolder {
-  background-color: #fff;
+  background-color: #ffe093;
 }
 
 .mainHeading {
   font-family: "Luckiest Guy", cursive;
   padding: 2%;
-  font-size: 5rem;
+  padding-bottom: 0;
+  font-size: 8rem;
+  color: #7fa7ff;
+  text-shadow: 3px 4px #131515;
 }
 
 .subHeading {
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Merriweather", serif;
   padding: 2%;
+  font-size: 3.5rem;
 }
 
 .categoryHeading {
   padding-bottom: 1%;
+  font-family: "Merriweather", serif;
+  font-size: 3rem;
+}
+
+.categorySelector {
+  display: block;
+  font-size: 16px;
+  font-family: sans-serif;
+  font-weight: 700;
+  color: #444;
+  line-height: 1.3;
+  padding: .6em 1.4em .5em .8em;
+  width: 35%;
+  max-width: 100%;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0 auto;
+  border: 1px solid #aaa;
+  -webkit-box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+          box-shadow: 0 1px 0 1px rgba(0, 0, 0, 0.04);
+  border-radius: .5em;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #fff;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#e5e5e5));
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E"), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+  background-repeat: no-repeat, repeat;
+  background-position: right .7em top 50%, 0 0;
+  background-size: .65em auto, 100%;
+}
+
+.categorySelector::-ms-expand {
+  display: none;
+}
+
+.categorySelector::-ms-expand:hover {
+  border-color: #888;
+}
+
+.categorySelector:focus {
+  border-color: #aaa;
+  -webkit-box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+          box-shadow: 0 0 1px 3px rgba(59, 153, 252, 0.7);
+  box-shadow: 0 0 0 3px -moz-mac-focusring;
+  color: black;
+  outline: none;
+}
+
+.categorySelector option {
+  font-weight: normal;
 }
 
 .fieldContainer {
@@ -261,16 +313,18 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 100%;
+  padding: 35px 0 35px 0;
 }
 
 .triviaQuestion {
-  background: white;
+  background: whitesmoke;
   border: 2px solid tomato;
   margin: 15px auto;
-  width: 70%;
+  width: 80%;
   padding: 15px 15px;
   -webkit-animation: slide-in-left 0.7s forwards;
           animation: slide-in-left 0.7s forwards;
+  border-radius: 20px 20px;
 }
 
 .triviaQuestion h2 {
@@ -283,7 +337,7 @@ header {
 }
 
 .triviaQuestion label {
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Merriweather", serif;
 }
 
 @-webkit-keyframes slide-in-left {
@@ -352,7 +406,7 @@ header {
   left: 0;
   height: 2rem;
   width: 2rem;
-  background-color: dodgerblue;
+  background-color: #7fa7ff;
   border-radius: 50%;
 }
 
@@ -377,15 +431,49 @@ header {
 }
 
 .radioButton:focus ~ .checkMark {
-  -webkit-box-shadow: 0 0 5px red;
-          box-shadow: 0 0 5px red;
+  -webkit-box-shadow: 0 0 5px tomato;
+          box-shadow: 0 0 5px tomato;
+}
+
+.finalSubmit {
+  display: block;
+  width: 250px;
+  height: 75px;
+  font-family: "Merriweather", serif;
+  font-weight: 900;
+  font-size: 3rem;
+  margin: 35px auto;
+  border: none;
+  background-color: tomato;
+  color: whitesmoke;
+  border-radius: 20px 20px;
+}
+
+.finalSubmit:hover {
+  background-color: whitesmoke;
+  color: tomato;
+}
+
+.finalSubmit:focus {
+  background-color: whitesmoke;
+  color: tomato;
+  -webkit-box-shadow: 0 0 5px tomato;
+          box-shadow: 0 0 5px tomato;
+}
+
+.resultMessage {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  text-shadow: 1px 2px tomato;
+  color: whitesmoke;
 }
 
 .lds-roller {
-  display: inline-block;
+  display: block;
   position: relative;
   width: 64px;
   height: 64px;
+  margin: 0 auto;
 }
 
 .lds-roller div {
@@ -510,10 +598,12 @@ header {
 
 footer {
   text-align: center;
-  background-color: #fff;
-  padding: 2%;
+  background-color: #131515;
+  padding: 15px;
 }
 
 footer p {
-  font-family: "Yanone Kaffeesatz", sans-serif;
+  font-family: "Merriweather", serif;
+  font-size: 2.5rem;
+  color: whitesmoke;
 }
