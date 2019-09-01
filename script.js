@@ -1,20 +1,26 @@
 const myApp = {};
 myApp.triviaUrl = 'https://opentdb.com/api.php?amount=10&type=multiple';
 
-myApp.getTriviaQuestions = function(choice){
+myApp.getTriviaQuestions = function (choice) {
     $.ajax({
         url: myApp.triviaUrl,
         method: 'GET',
         datatype: 'json',
         data: {
             category: choice
+        },
+        beforeSend: function() {
+            $('.lds-roller').show();
+        },
+        complete: function() {
+            $('.lds-roller').hide();
         }
-    }).then(function(result){
+    }).then(function (result) {
         // Note: ajax returns an object that holds 10 arrays
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
         console.log("result.results", result.results);
-    }).fail( function(error) {
+    }).fail(function (error) {
         // TODO: Display message in the UI
     })
 }
@@ -23,71 +29,84 @@ myApp.userAnswers = [];
 myApp.correctAnswerArray = [];
 myApp.finalizedAnswers = [];
 
-myApp.changeCategory = function() {
-    $('select').on('change', function() {
+myApp.changeCategory = function () {
+    $('select').on('change', function () {
         chosenCategory = $('option:selected').val();
         console.log("Chosen category", chosenCategory);
 
         $('.questionsForm').empty();
 
         myApp.getTriviaQuestions(chosenCategory);
-        
+
         myApp.correctAnswerArray = [];
     })
 }
 
 /* A function to decode the characters returned by the API i.e. #&039; for single quote into ' */
-myApp.htmlDecode = function(value) {
+myApp.htmlDecode = function (value) {
     return $("<textarea/>").html(value).text();
 }
 /* Function to display trivia questions */
 myApp.displayTriviaQuestionsAndChoices = (arrayOfQuestionObjects) => {
     //Display each result object in the ui
     const multipleChoice = myApp.getChoices(arrayOfQuestionObjects);
-    
+
     arrayOfQuestionObjects.forEach((questionBlock, index) => {
         myApp.correctAnswerArray.push(myApp.htmlDecode(questionBlock.correct_answer));
 
         const displayHTML = `
         <div class="triviaQuestion">
-            <h2>${index+1}.  ${questionBlock.question}</h2>
-            <fieldset>
-                <div>
-                    <input type="radio" name=${[index]} id='a${[index]}' value="${multipleChoice[index][0]}" required="required">
-                    <label for='a${[index]}'>${multipleChoice[index][0]}</label>
+            <h2>${index + 1}.  ${questionBlock.question}</h2>
+            <div class="fieldContainer" role="group">
+                <div class='optGroup1'>
+                    <label class='labelRadioContainer'>
+                        <input type="radio" name='ans${[index]}' id='a${[index]}' class='radioButton' value="${multipleChoice[index][0]}"> 
+                        <span class="checkMark"></span>
+                        ${multipleChoice[index][0]}
+                    </label>
                 
-                    <input type="radio" name=${[index]} id='b${[index]}' value="${multipleChoice[index][1]}" required="required">
-                    <label for='b${[index]}'>${multipleChoice[index][1]}</label>
+                    <label class='labelRadioContainer'>
+                        <input type="radio" name='ans${[index]}' id='b${[index]}' class='radioButton' value="${multipleChoice[index][1]}"> 
+                        <span class="checkMark"></span>
+                        ${multipleChoice[index][1]}
+                    </label>
                 </div>
-                <div>
-                    <input type="radio" name=${[index]} id='c${[index]}' value="${multipleChoice[index][2]}" required="required">
-                    <label for='c${[index]}'>${multipleChoice[index][2]}</label>
 
-                    <input type="radio" name=${[index]} id='d${[index]}' value="${multipleChoice[index][3]}" required="required">
-                    <label for='d${[index]}'>${multipleChoice[index][3]}</label>
+                <div class='optGroup2'>
+                    <label class='labelRadioContainer'>
+                        <input type="radio" name='ans${[index]}' id='a${[index]}' class='radioButton' value="${multipleChoice[index][2]}"> 
+                        <span class="checkMark"></span>
+                        ${multipleChoice[index][2]}
+                    </label>
+        
+                    <label class='labelRadioContainer'>
+                        <input type="radio" name='ans${[index]}' id='b${[index]}' class='radioButton' value="${multipleChoice[index][3]}"> 
+                        <span class="checkMark"></span>
+                        ${multipleChoice[index][3]}
+                    </label>
                 </div>
-            </fieldset>
+            </div>
         </div>`;
 
         $('#mainTriviaContainer form').append(displayHTML);
-    }); 
+    });
 
     // Add Submit Button
     $('#mainTriviaContainer form').append(`<input type="submit" value="Submit">`);
-    
+
     console.log("myApp.correctAnswerArray", myApp.correctAnswerArray);
     console.log("arrayOfQuestionsObjects", arrayOfQuestionObjects);
 }
 
-$('form').on('submit', function(event) {
+$('form').on('submit', function (event) {
     event.preventDefault();
-    
-    $("input:checked").each(function(){
+
+    $("input:checked").each(function () {
         let userChoice = this.value;
         myApp.userAnswers.push(userChoice);
         console.log("myApp.userAnswers", myApp.userAnswers);
     })
-    
+
     myApp.correctAnswerArray.forEach((answer, index) => {
         if (myApp.userAnswers[index] === answer) {
             myApp.finalizedAnswers.push(myApp.userAnswers[index]);
@@ -96,13 +115,14 @@ $('form').on('submit', function(event) {
 
     console.log("finalizedAnswer", myApp.finalizedAnswers);
 
-    if (myApp.userAnswers.length !== myApp.correctAnswerArray.length){
+    if (myApp.userAnswers.length !== myApp.correctAnswerArray.length) {
         $('.resultMessage').html(`<h2>Please answer all the questions before submitting.`);
         myApp.userAnswers = [];
-    } else {$('.resultMessage').html(`
+    } else {
+        $('.resultMessage').html(`
     <h2>Whoa! You got ${myApp.finalizedAnswers.length} questions correct!</h2>`);
-    $('form').off('submit');
-    $('form input[type=submit]').val("Reset Quiz");
+        $('form').off('submit');
+        $('form input[type=submit]').val("Reset Quiz");
     };
 });
 
@@ -114,10 +134,10 @@ Logic:
 3. Randomize the an index where we can insert the correct answer
 4. Insert the correct answer to each array
 */
-myApp.getChoices = (arrayOfQuestionObjects) => {    
+myApp.getChoices = (arrayOfQuestionObjects) => {
     const choicesArray = [];
 
-    arrayOfQuestionObjects.forEach( (question, index) => {
+    arrayOfQuestionObjects.forEach((question, index) => {
         // Note: incorrect_answers property data type is an array.  Push the incrrect_answers array to the choicesArray
         choicesArray.push(question.incorrect_answers);
 
@@ -127,14 +147,14 @@ myApp.getChoices = (arrayOfQuestionObjects) => {
 
         // Insert the correct answer using the index position generated
         choicesArray[index].splice(randomIndex, 0, question.correct_answer);
-        
+
         console.log("correct_answer", question.correct_answer, "random index", randomIndex);
     });
 
     return choicesArray;
 }
 
-myApp.init = function(){
+myApp.init = function () {
     // By default this will display General Knowledge category
     myApp.getTriviaQuestions(9);
 
@@ -142,6 +162,6 @@ myApp.init = function(){
     myApp.changeCategory();
 }
 
-$(document).ready(function(){
+$(document).ready(function () {
     myApp.init();
 });

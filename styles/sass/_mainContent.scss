@@ -1,7 +1,109 @@
-fieldset {
+.fieldContainer {
     display: flex;
+    border: none;
+    justify-content: space-around;
+    margin-top: 1.5rem;
 }
 
-fieldset div {
-    flex-direction: row;
+.mainTriviaContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+.triviaQuestion{
+    background: white;
+    border: 2px solid tomato;
+    margin: 15px auto;
+    width: 70%;
+    padding: 15px 15px;
+    animation: slide-in-left 0.7s forwards;
+    h2{
+        font-family: $mainFont;
+        letter-spacing: 1px;
+        width: 90%;
+        font-size: 3.5rem;
+        margin: 0 auto;
+        padding: 10px 0;
+    }
+    label{
+        font-family: $subFont;
+    }
+}
+
+// animation courtesy animista.net
+
+@-webkit-keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}@keyframes slide-in-left{0%{-webkit-transform:translateX(-1000px);transform:translateX(-1000px);opacity:0}100%{-webkit-transform:translateX(0);transform:translateX(0);opacity:1}}
+
+// Radio buttons styles
+.optGroup1,
+.optGroup2 {
+    display: flex;
+    flex-direction: column;
+    width: 40%;
+
+    label:nth-child(1) {
+        padding-bottom: 1rem;
+    }
+}
+
+// Style the label which is also the radio button container
+.labelRadioContainer {
+    cursor: pointer;
+    display: block;
+    font-size: 2.2rem;
+    padding-left: 3.5rem;
+    margin-bottom: 1.2rem;
+
+    position: relative;
+
+}
+
+// Hide the default radio button. This should be accessible since we are just hiding.
+.radioButton {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+// Style the span that will act as the radio butotn
+.checkMark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 2rem;
+    width: 2rem;
+    background-color: dodgerblue;
+    border-radius: 50%;
+}
+
+// Change background color when we hover the custom radio
+.labelRadioContainer:hover input ~ .checkMark {
+    background-color: gray;
+}
+
+// Create the dot in the radio button. hide it so it does not show up when radio is not selected
+.checkMark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    top: 0.6rem;
+    left: 0.6rem;
+    width: 0.8rem;
+    height: 0.8rem;
+    border-radius: 50%;
+    background: whitesmoke;
+}
+
+// Display the dot when selected
+.radioButton:checked ~ .checkMark::after {
+    display: block;
+}
+
+.radioButton:focus ~ .checkMark{
+    box-shadow: 0 0 5px red;
 }
