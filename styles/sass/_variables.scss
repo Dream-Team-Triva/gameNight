@@ -8,9 +8,7 @@ $mainFont: 'Luckiest Guy', cursive;
 $testFont: 'Merriweather', serif;
 
 // breakpoints
-
-$ipad: (max-width: 768px);
-$mobileDeadZone: (min-width: 415px) and (max-width: 767px);
-$iphonePlus: (max-width: 414px);
-$iphone678: (max-width: 375px);
-$iphone5: (max-width: 320px);
+$ipad: 768px;
+$iphonePlus: 414px;
+$iphone678: 375px;
+$iphone5: 320px;

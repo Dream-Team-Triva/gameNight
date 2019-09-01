@@ -218,13 +218,13 @@ header {
   background-color: #ffe093;
 }
 
-@media ((max-width: 768px)) {
+@media (max-width: 768px) {
   header {
     padding-bottom: 40px;
   }
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   header {
     height: 100vh;
   }
@@ -239,7 +239,7 @@ header {
   text-shadow: 3px 4px #131515;
 }
 
-@media ((max-width: 320px)) {
+@media (max-width: 320px) {
   .mainHeading {
     font-size: 7rem;
   }
@@ -251,13 +251,13 @@ header {
   font-size: 3.5rem;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .subHeading {
     font-size: 3.1rem;
   }
 }
 
-@media ((max-width: 320px)) {
+@media (max-width: 320px) {
   .subHeading {
     font-size: 2.8rem;
   }
@@ -269,20 +269,20 @@ header {
   font-size: 3rem;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .categoryHeading {
     font-size: 2.5rem;
     margin-bottom: 90px;
   }
 }
 
-@media ((max-width: 375px)) {
+@media (max-width: 375px) {
   .categoryHeading {
     margin-bottom: 50px;
   }
 }
 
-@media ((max-width: 320px)) {
+@media (max-width: 320px) {
   .categoryHeading {
     font-size: 2.2rem;
     margin-bottom: 25px;
@@ -317,28 +317,22 @@ header {
   background-size: .65em auto, 100%;
 }
 
-@media ((max-width: 768px)) {
+@media (max-width: 768px) {
   .categorySelector {
     height: 70px;
     width: 40%;
   }
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .categorySelector {
     width: 70%;
   }
 }
 
-@media ((max-width: 375px)) {
+@media (max-width: 375px) {
   .categorySelector {
     width: 80%;
-  }
-}
-
-@media ((max-width: 767px)) {
-  .categorySelector {
-    width: 70%;
   }
 }
 
@@ -373,7 +367,7 @@ header {
   margin-top: 1.5rem;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .fieldContainer {
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
@@ -420,21 +414,15 @@ header {
   padding: 10px 0;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .triviaQuestion h2 {
     font-size: 3rem;
   }
 }
 
-@media ((max-width: 320px)) {
+@media (max-width: 320px) {
   .triviaQuestion h2 {
     font-size: 2.8rem;
-  }
-}
-
-@media ((max-width: 767px)) {
-  .triviaQuestion h2 {
-    width: 80%;
   }
 }
 
@@ -442,7 +430,7 @@ header {
   font-family: "Merriweather", serif;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .triviaQuestion {
     width: 95%;
   }
@@ -486,7 +474,7 @@ header {
   width: 40%;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   .optGroup1,
   .optGroup2 {
     width: 100%;
@@ -732,19 +720,19 @@ footer p {
   color: whitesmoke;
 }
 
-@media ((max-width: 414px)) {
+@media (max-width: 414px) {
   footer p {
     font-size: 2rem;
   }
 }
 
-@media ((max-width: 375px)) {
+@media (max-width: 375px) {
   footer p {
     font-size: 1.8rem;
   }
 }
 
-@media ((max-width: 320px)) {
+@media (max-width: 320px) {
   footer p {
     font-size: 1.6rem;
   }

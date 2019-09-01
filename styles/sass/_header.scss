@@ -87,9 +87,6 @@ header {
      @include iphone678{
         width: 80%;
     }
-    @include mobileDeadZone{
-        width: 70%;
-    }
 }
 
 .categorySelector::-ms-expand {

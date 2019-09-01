@@ -1,19 +1,15 @@
 @mixin ipad {
-  @media ($ipad) {@content}; 
-}
-
-@mixin mobileDeadZone{
-    @media ($mobileDeadZone) {@content}; 
+    @media (max-width: $ipad) {@content}; 
 }
 
 @mixin iphonePlus{
-    @media ($iphonePlus) {@content}; 
+    @media (max-width: $iphonePlus) {@content}; 
 }
 
 @mixin iphone678{
-    @media ($iphone678) {@content}; 
+    @media (max-width: $iphone678) {@content}; 
 }
 
 @mixin iphone5{
-    @media ($iphone5) {@content}; 
+    @media (max-width: $iphone5) {@content}; 
 }
