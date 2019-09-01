@@ -20,7 +20,7 @@ myApp.getTriviaQuestions = function (choice) {
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
     }).fail(function (error) {
-        // TODO: Display message in the UI
+       $('.errorMessage').html(`<h2>Oops! Something's wrong. Please refresh the webpage or try again at a later time.</h2>`);
     })
 }
 

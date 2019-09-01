@@ -2,6 +2,10 @@
   @media ($ipad) {@content}; 
 }
 
+@mixin mobileDeadZone{
+    @media ($mobileDeadZone) {@content}; 
+}
+
 @mixin iphonePlus{
     @media ($iphonePlus) {@content}; 
 }

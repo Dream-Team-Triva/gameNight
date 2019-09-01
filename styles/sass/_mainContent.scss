@@ -37,6 +37,9 @@
         @include iphone5{
             font-size: 2.8rem;
         }
+        @include mobileDeadZone{
+        width: 80%;
+    }
     }
     label{
         font-family: $testFont;
@@ -155,5 +158,13 @@
     font-size: 2rem;
     text-shadow: 1px 2px $accentColor;
     color: whitesmoke;
+    text-align: center;
+}
+
+.errorMessage{
+    font-family: $testFont;
+    font-size: 2rem;
+    text-shadow: 1px 2px whitesmoke;
+    color: $textColor;
     text-align: center;
 }

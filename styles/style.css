@@ -336,6 +336,12 @@ header {
   }
 }
 
+@media ((max-width: 767px)) {
+  .categorySelector {
+    width: 70%;
+  }
+}
+
 .categorySelector::-ms-expand {
   display: none;
 }
@@ -423,6 +429,12 @@ header {
 @media ((max-width: 320px)) {
   .triviaQuestion h2 {
     font-size: 2.8rem;
+  }
+}
+
+@media ((max-width: 767px)) {
+  .triviaQuestion h2 {
+    width: 80%;
   }
 }
 
@@ -569,6 +581,14 @@ header {
   font-size: 2rem;
   text-shadow: 1px 2px tomato;
   color: whitesmoke;
+  text-align: center;
+}
+
+.errorMessage {
+  font-family: "Merriweather", serif;
+  font-size: 2rem;
+  text-shadow: 1px 2px whitesmoke;
+  color: #131515;
   text-align: center;
 }
 
