@@ -158,9 +158,16 @@
 .resultMessage {
     font-family: $testFont;
     font-size: 2rem;
-    text-shadow: 1px 2px $accentColor;
     color: whitesmoke;
     text-align: center;
+    letter-spacing: 0.1rem;
+
+    // Text stroke by Chris Coyier
+    text-shadow: 1px 1px 0 $textColor,
+    -1px -1px 0 $accentColor,  
+    1px -1px 0 $accentColor,
+    -1px 1px 0 $accentColor,
+    1px 1px 0 $accentColor
 }
 
 .errorMessage{
