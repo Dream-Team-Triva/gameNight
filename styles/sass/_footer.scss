@@ -1,12 +1,12 @@
 footer {
     text-align: center;
     background-color: $textColor;
-    padding: 15px;
+    padding: 5px;
 }
 
 footer p {
     font-family: $testFont;
-    font-size: 2.5rem;
+    font-size: 2.4rem;
     color: whitesmoke;
     @include iphonePlus{
         font-size: 2rem;
@@ -17,4 +17,13 @@ footer p {
     @include iphone5{
         font-size: 1.6rem;
     }
+}
+
+footer a{
+    text-decoration: none;
+    color: tomato;
+}
+
+.footerCredit{
+    font-size: 1.6rem;
 }

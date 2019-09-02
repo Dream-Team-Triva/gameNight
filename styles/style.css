@@ -782,12 +782,12 @@ header {
 footer {
   text-align: center;
   background-color: #131515;
-  padding: 15px;
+  padding: 5px;
 }
 
 footer p {
   font-family: "Merriweather", serif;
-  font-size: 2.5rem;
+  font-size: 2.4rem;
   color: whitesmoke;
 }
 
@@ -807,4 +807,13 @@ footer p {
   footer p {
     font-size: 1.6rem;
   }
+}
+
+footer a {
+  text-decoration: none;
+  color: tomato;
+}
+
+.footerCredit {
+  font-size: 1.6rem;
 }
