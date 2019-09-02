@@ -339,6 +339,12 @@ header {
   }
 }
 
+@media (max-width: 320px) {
+  .categorySelector {
+    width: 90%;
+  }
+}
+
 .categorySelector::-ms-expand {
   display: none;
 }

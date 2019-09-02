@@ -89,6 +89,9 @@ header {
      @include iphone678{
         width: 80%;
     }
+    @include iphone5{
+        width: 90%;
+    }
 }
 
 .categorySelector::-ms-expand {
