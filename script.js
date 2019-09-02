@@ -16,7 +16,7 @@ myApp.getTriviaQuestions = function (choice) {
             $('.lds-roller').hide();
         }
     }).then(function (result) {
-        // Note: ajax returns an object that holds 10 arrays
+        // Ajax returns an object that holds 10 arrays
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
     }).fail(function (error) {
@@ -120,8 +120,7 @@ $('form').on('submit', function (event) {
 });
 
 /*
-Function to get the choices.
-Logic:
+Logic to get the choices.
 1. We have 10 questions.  Each question is stored in an object.
 2. Create a multi-dimensional array - an array that will hold the array of choices for each question
 3. Randomize the index where we can insert the correct answer
@@ -131,7 +130,7 @@ myApp.getChoices = (arrayOfQuestionObjects) => {
     const choicesArray = [];
 
     arrayOfQuestionObjects.forEach((question, index) => {
-        // Note: incorrect_answers property data type is an array.  Push the incrrect_answers array to the choicesArray
+        // Incorrect_answers property data type is an array.  Push the incrrect_answers array to the choicesArray
         choicesArray.push(question.incorrect_answers);
 
         // Randomize the index position to insert correct answer
