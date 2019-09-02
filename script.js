@@ -36,6 +36,8 @@ myApp.changeCategory = function () {
         myApp.getTriviaQuestions(chosenCategory);
 
         myApp.correctAnswerArray = [];
+
+        $('.resultMessage').empty();
     })
 }
 
