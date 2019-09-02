@@ -2,14 +2,14 @@
     @media (max-width: $ipad) {@content}; 
 }
 
-@mixin iphonePlus{
+@mixin iphonePlus {
     @media (max-width: $iphonePlus) {@content}; 
 }
 
-@mixin iphone678{
+@mixin iphone678 {
     @media (max-width: $iphone678) {@content}; 
 }
 
-@mixin iphone5{
+@mixin iphone5 {
     @media (max-width: $iphone5) {@content}; 
 }

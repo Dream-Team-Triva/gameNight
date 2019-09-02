@@ -5,7 +5,7 @@ header {
     @include ipad{
         padding-bottom: 40px;
     }
-    @include iphonePlus{
+    @include iphonePlus {
         height: 100vh;
     }
 }
@@ -16,8 +16,11 @@ header {
     padding-bottom: 0;
     font-size: 8rem;
     color: $primaryColor;
-    text-shadow: 3px 4px #131515;
-    @include iphone5{
+    text-shadow: 3px 4px $textColor;
+    letter-spacing: 0.2rem;
+    animation: pulse 1s ease-in-out;
+
+    @include iphone5 {
         font-size: 7rem;
     }
 }
@@ -106,4 +109,14 @@ header {
 
 .categorySelector option {
     font-weight: normal;
+}
+
+// Courtesy of HY Web Dev part time example
+@keyframes pulse {
+    0% { transform: scale(1); }
+    20% { transform: scale(1); }
+    40% { transform: scale(1.1); }
+    60% { transform: scale(1); }
+    80% { transform: scale(1.07); }
+    100% { transform: scale(1); }
 }

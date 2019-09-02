@@ -237,6 +237,9 @@ header {
   font-size: 8rem;
   color: #7fa7ff;
   text-shadow: 3px 4px #131515;
+  letter-spacing: 0.2rem;
+  -webkit-animation: pulse 1s ease-in-out;
+          animation: pulse 1s ease-in-out;
 }
 
 @media (max-width: 320px) {
@@ -357,6 +360,60 @@ header {
   font-weight: normal;
 }
 
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  60% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.07);
+            transform: scale(1.07);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  20% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  40% {
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1);
+  }
+  60% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.07);
+            transform: scale(1.07);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
 .fieldContainer {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -400,8 +457,8 @@ header {
   margin: 15px auto;
   width: 80%;
   padding: 15px 15px;
-  -webkit-animation: slide-in-left 0.7s forwards;
-          animation: slide-in-left 0.7s forwards;
+  -webkit-animation: slide-in-left 2s forwards;
+          animation: slide-in-left 2s forwards;
   border-radius: 20px 20px;
 }
 
@@ -484,6 +541,13 @@ header {
 .optGroup1 label:nth-child(1),
 .optGroup2 label:nth-child(1) {
   padding-bottom: 1rem;
+}
+
+@media (max-width: 414px) {
+  .optGroup1 label:nth-child(1),
+  .optGroup2 label:nth-child(1) {
+    padding-bottom: 0;
+  }
 }
 
 .labelRadioContainer {

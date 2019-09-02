@@ -20,7 +20,7 @@ myApp.getTriviaQuestions = function (choice) {
         // Call the function to display the trivia questions in the ui. Pass the "results" array (instead of the parent object) since the 10 arrays are what we care about
         myApp.displayTriviaQuestionsAndChoices(result.results);
     }).fail(function (error) {
-       $('.errorMessage').html(`<h2>Oops! Something's wrong. Please refresh the webpage or try again at a later time.</h2>`);
+        $('.errorMessage').html(`<h2>Oops! Something's wrong. Please refresh the webpage or try again at a later time.</h2>`);
     })
 }
 
@@ -122,7 +122,7 @@ Function to get the choices.
 Logic:
 1. We have 10 questions.  Each question is stored in an object.
 2. Create a multi-dimensional array - an array that will hold the array of choices for each question
-3. Randomize the an index where we can insert the correct answer
+3. Randomize the index where we can insert the correct answer
 4. Insert the correct answer to each array
 */
 myApp.getChoices = (arrayOfQuestionObjects) => {
